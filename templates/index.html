@@ -34,15 +34,66 @@
         .m3 { background-color: #d0f0c0; }
 
         input {
-            width: 95%;
+            width: 90%;
             border: none;
             text-align: center;
         }
+        .mpdv input,   
+        .m3 input {
+            height: 38px;
+            padding: 10px;
+            font-size: 18px;
+        }        
+        .mpdv textarea,
+        .m3 textarea {
+            width: 100%;
+            height: 50px;       /* ✅ more height */
+            resize: vertical;   /* ✅ allow manual resize */
+            padding: 8px;
+            font-size: 16px;
+            box-sizing: border-box;
+
+            white-space: normal;        /* ✅ wrap text */
+            word-wrap: break-word;      /* ✅ break long emails */
+        }
+
+        
+        input[type="date"] {
+            width: 400px;      /* ✅ increase width */
+            height: 35px;      /* ✅ increase height */
+            padding: 5px;
+            font-size: 22px;
+        }
+
+        .date-col input {
+            width: 100%;      /* ✅ fill full width */
+            height: 35px;     /* ✅ increase height */
+            box-sizing: border-box;  /* ✅ prevents overflow */
+        }
+
+        input[type="time"] {
+            width: 80px;      /* ✅ increase width */
+            height: 25px;      /* ✅ increase height */
+            padding: 1px;
+            font-size: 18px;
+        }
+        
+        input[type="time"] {
+            width: 100%;
+        }
+
+        td {
+            padding: 5px;
+        }
+
+
+
 
         button {
             background: #2c3e50;
             color: white;
-            padding: 5px 10px;
+            padding: 15px 10px;
+            font-size: 20px; 
             cursor: pointer;
         }
     </style>
@@ -102,7 +153,8 @@
 
     <!-- MPDV -->
     <td class="mpdv">
-        <input name="mpdv_name" value="{{ row[2] or '' }}">
+        
+        <textarea name="mpdv_name">{{ row[2] or '' }}</textarea>
     </td>
 
     <td class="mpdv">
@@ -115,7 +167,7 @@
 
     <!-- M3 -->
     <td class="m3">
-        <input name="m3_name" value="{{ row[5] or '' }}">
+        <textarea name="m3_name">{{ row[5] or '' }}</textarea>
     </td>
 
     <td class="m3">
