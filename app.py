@@ -23,15 +23,17 @@ def init_db():
     c = conn.cursor()
 
     c.execute('''
-        CREATE TABLE IF NOT EXISTS meetings (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            date TEXT UNIQUE,
-            day TEXT,
-            mpdv_name TEXT,
-            mpdv_time TEXT,
-            m3_name TEXT,
-            m3_time TEXT
-        )
+    CREATE TABLE IF NOT EXISTS meetings (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        date TEXT UNIQUE,
+        day TEXT,
+        mpdv_name TEXT,
+        mpdv_start_time TEXT,
+        mpdv_end_time TEXT,
+        m3_name TEXT,
+        m3_start_time TEXT,
+        m3_end_time TEXT
+    )
     ''')
 
     # Insert dates if not exist
@@ -63,15 +65,19 @@ def update():
     c.execute('''
         UPDATE meetings SET
             mpdv_name=?,
-            mpdv_time=?,
+            mpdv_start_time=?,
+            mpdv_end_time=?,
             m3_name=?,
-            m3_time=?
+            m3_start_time=?,
+            m3_end_time=?
         WHERE id=?
     ''', (
         request.form['mpdv_name'],
-        request.form['mpdv_time'],
+        request.form['mpdv_start_time'],
+        request.form['mpdv_end_time'],
         request.form['m3_name'],
-        request.form['m3_time'],
+        request.form['m3_start_time'],
+        request.form['m3_end_time'],
         row_id
     ))
 
