@@ -7,7 +7,7 @@ app = Flask(__name__)
 # ✅ DB Connection
 def get_connection():
     return psycopg2.connect(
-        "postgresql://meeting_data_user:auSOB0tgNP8ikv0Pxbyv7w8daAo1MIsb@dpg-d91o82laeets73fspltg-a.oregon-postgres.render.com/meeting_data",
+        "postgresql://meeting_data_new_user:97putwxf15IhBoo1SJnRGT7M2FunFgFb@dpg-d91p0j8js32c739q9vh0-a.oregon-postgres.render.com/meeting_data_new",
         sslmode='require'
     )
 
